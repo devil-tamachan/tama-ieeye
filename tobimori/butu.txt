@@ -1,0 +1,22 @@
+半バイトずつずれてるっぽい
+
+0x00h   0x40 26 C? (header?)
+0x02.5h デザイン名 (UTF16)
+
+0x2C.5h unkown1(2byte) 0x95DB...
+0x2E.5h 作者名 (UTF16)
+
+0x42.5 unkown2(2byte) 0x8FAD...
+0x44.5h 村名 (UTF16)
+
+0x58.5h unknown3(2byte) 0x0103...
+0x5A.5h パレットスタート(15bytes)(160colors)
+0x69.5h CRC?(1byte)時間っぽい 11時だとAA?12==8A?
+
+0x006A.0 (4byte) 0x0A090000
+
+0x006E.5 - 0x026E.5    imgdata(1px==0.5byte)
+  0xP1032547698BADCFE
+
+0x26E.5 0xP0EC11EC11
+

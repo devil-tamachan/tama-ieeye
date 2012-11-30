@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+
+	<fx:Script>
+		<![CDATA[
+			import com.google.zxing.BarcodeFormat;
+			import com.google.zxing.BinaryBitmap;
+			import com.google.zxing.BufferedImageLuminanceSource;
+			import com.google.zxing.DecodeHintType;
+			import com.google.zxing.Result;
+			import com.google.zxing.common.GlobalHistogramBinarizer;
+			import com.google.zxing.common.HybridBinarizer;
+			import com.google.zxing.common.flexdatatypes.HashTable;
+			import com.google.zxing.qrcode.QRCodeReader;
+			
+			import mx.controls.Alert;
+			
+			
+			private var flt1:FileFilter = new FileFilter("画像ファイル(jpg,png,gif)", "*.jpg;*.gif;*.png"); 
+			private var f1:FileReference = new FileReference();
+			
+			private var qrReader:QRCodeReader = new QRCodeReader();
+			
+			protected function onClickSelectSrc(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				f1.addEventListener(Event.SELECT, onSelectFile);
+				f1.addEventListener(Event.COMPLETE, onCompleteFile);
+				f1.browse([flt1]);
+			}
+			
+			protected function onSelectFile(e:Event):void
+			{
+			//	var f1:FileReference = FileReference(e.target);
+				f1.load();
+				labelFilename.text = f1.name;
+			}
+			
+			protected function onCompleteFile(e:Event):void
+			{
+			//	var f1:FileReference = FileReference(e.target);
+				mainimage.load(f1.data);
+				labelFilename.text = "Complete";
+			}
+			
+			var pcolors:Array = new Array(	0xffefff, 0xff9aad, 0xef559c, 0xff65ad, 0xff0063, 0xbd4573, 0xce0052, 0x9c0031, 0x522031, 0, 0, 0, 0, 0, 0, 0xffffff
+										,	0xffbace, 0xff7573, 0xde3010, 0xff5542, 0xff0000, 0xce6563, 0xbd4542, 0xbd0000, 0x8c2021, 0, 0, 0, 0, 0, 0, 0xefefef
+										,	0xdecfbd, 0xffcf63, 0xde6521, 0xffaa21, 0xff6500, 0xbd8a52, 0xde4500, 0xbd4500, 0x633010, 0, 0, 0, 0, 0, 0, 0xdedfde
+										,	0xffefde, 0xffdfce, 0xffcfad, 0xffba8c, 0xffaa8c, 0xde8a63, 0xbd6542, 0x9c5531, 0x8c4521, 0, 0, 0, 0, 0, 0, 0xcecfce
+										,	0xffcfff, 0xef8aff, 0xce65de, 0xbd8ace, 0xce00ff, 0x9c659c, 0x8c00ad, 0x520073, 0x310042, 0, 0, 0, 0, 0, 0, 0xbdbabd
+										,	0xffbaff, 0xff9aff, 0xde20bd, 0xff55ef, 0xff00ce, 0x8c5573, 0xbd009c, 0x8c0063, 0x520042, 0, 0, 0, 0, 0, 0, 0xadaaad
+										,	0xdeba9c, 0xceaa73, 0x734531, 0xad7542, 0x9c3000, 0x733021, 0x522000, 0x311000, 0x211000, 0, 0, 0, 0, 0, 0, 0x9c9a9c
+										,	0xffffce, 0xffff73, 0xdedf21, 0xffff00, 0xffdf00, 0xceaa00, 0x9c9a00, 0x8c7500, 0x525500, 0, 0, 0, 0, 0, 0, 0x8c8a8c
+										,	0xdebaff, 0xbd9aef, 0x6330ce, 0x9c55ff, 0x6300ff, 0x52458c, 0x42009c, 0x210063, 0x211031, 0, 0, 0, 0, 0, 0, 0x737573
+										,	0xbdbaff, 0x8c9aff, 0x3130ad, 0x3155ef, 0x0000ff, 0x31308c, 0x0000ad, 0x101063, 0x000021, 0, 0, 0, 0, 0, 0, 0x636563
+										,	0x9cefbd, 0x63cf73, 0x216510, 0x42aa31, 0x008a31, 0x527552, 0x215500, 0x103021, 0x002010, 0, 0, 0, 0, 0, 0, 0x525552
+										,	0xdeffbd, 0xceff8c, 0x8caa52, 0xaddf8c, 0x8cff00, 0xadba9c, 0x63ba00, 0x529a00, 0x316500, 0, 0, 0, 0, 0, 0, 0x424542
+										,	0xbddfff, 0x73cfff, 0x31559c, 0x639aff, 0x1075ff, 0x4275ad, 0x214573, 0x002073, 0x001042, 0, 0, 0, 0, 0, 0, 0x313031
+										,	0xadffff, 0x52ffff, 0x008abd, 0x52bace, 0x00cfff, 0x429aad, 0x00658c, 0x004552, 0x002031, 0, 0, 0, 0, 0, 0, 0x212021
+										,	0xceffef, 0xadefde, 0x31cfad, 0x52efbd, 0x00ffce, 0x73aaad, 0x00aa9c, 0x008a73, 0x004531, 0, 0, 0, 0, 0, 0, 0
+										,	0xadffad, 0x73ff73, 0x63df42, 0x00ff00, 0x21df21, 0x52ba52, 0x00ba00, 0x008a00, 0x214521, 0, 0, 0, 0, 0, 0, 0);
+
+			protected function onClickDecodeQr(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				qrstate.text = "s1";
+				var bmp1:BitmapData = Bitmap(mainimage.content).bitmapData;
+				qrstate.text = "s7";
+				var lSrc:BufferedImageLuminanceSource = new BufferedImageLuminanceSource(bmp1);
+				var binbmp1:BinaryBitmap = new BinaryBitmap(new HybridBinarizer(lSrc));
+				qrstate.text = "s2";
+				
+				var hash1:HashTable = new HashTable();
+				hash1.Add(DecodeHintType.POSSIBLE_FORMATS, BarcodeFormat.QR_CODE);
+				qrstate.text = "s3";
+				
+				var res:Result=null;
+				try {
+					res = qrReader.decode(binbmp1, hash1);
+				} catch(e:Error) {
+					labelFilename.text = e.toString();
+					//Alert.show(e.message);
+				}
+				qrstate.text = "s4";
+				
+				if(res==null)
+				{
+					qrstate.text = "Failed";
+				} else {
+					qrstate.text = "Success";
+					var dst1:ByteArray = new ByteArray();
+					var src1:Array = res.getRawBytes();
+					//Alert.show(getQualifiedClassName(src1[0]).toString());
+					//Alert.show(src1[0].toString());
+					for(var cnt:Number = 0; cnt<src1.length; cnt++)
+					{
+						dst1[cnt] = src1[cnt];
+					}
+					
+					//Alert.show(dst1.toString());
+				//	var outfile:FileReference = new FileReference();
+				//	outfile.save(dst1, "raw.bin");
+					
+					var pcindex:Array = new Array();
+					//pcindex.length = 15;
+					var piOffset:int = 0x5a;
+					for(var i:int=0; i<15; i++,piOffset++)
+					{
+							pcindex.push(pcolors[((dst1[piOffset] & 0x0F)<<4) + ((dst1[piOffset+1] & 0xF0)>>4)]);
+							trace(((dst1[piOffset] & 0x0F)<<4) + ((dst1[piOffset+1] & 0xF0)>>4));
+					}
+					trace("palletend");
+					var dstbmp:BitmapData = new BitmapData(32,32);
+					
+					var offset:int = 0x6E;
+					
+					for(var y:int=0;y<32;y++)
+					{
+						for(var x:int=0;x<32;x++)
+						{
+							var isOdd:int = x%2;
+							if(isOdd)
+							{
+								dstbmp.setPixel(x,y, pcindex[dst1[offset] & 0x0F]);
+								trace(x,y,(dst1[offset] & 0x0F).toString(), pcindex[dst1[offset] & 0x0F]);
+								offset++;
+							} else {
+								dstbmp.setPixel(x,y, pcindex[(dst1[offset+1] & 0xF0)>>0x4]);
+								trace(x,y,((dst1[offset+1] & 0xF0)>>0x4).toString(), pcindex[(dst1[offset+1] & 0xF0)>>0x4]);
+							}
+						}
+					}
+					decodeimage.source = dstbmp;
+				}
+				
+			}
+
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+	</fx:Declarations>
+	<mx:Image x="8" y="13" width="400" height="240" id="mainimage"/>
+	<s:BitmapImage x="430" y="26" width="320" height="320" smooth="false" id="decodeimage"/>
+	<s:Button x="28" y="432" label="QR画像選択" click="onClickSelectSrc(event)" id="selectsrc"/>
+	<s:Label x="24" y="402" text="Ready" id="labelFilename"/>
+	<s:Button x="207" y="410" label="QR解析" id="decodeqr" click="onClickDecodeQr(event)"/>
+	<s:Label x="218" y="393" text="Ready" id="qrstate"/>
+</s:Application>
