@@ -106,6 +106,7 @@ public:
 			if(_wcsicmp(procName, _T("iexplore.exe"))==0)return true;
 //			if(_wcsicmp(procName, _T("flashutil10t_activex.exe"))==0)return true;
 			if(_wcsnicmp(procName, _T("flashutil"), 9)==0)return true;
+			if(_wcsnicmp(procName, _T("flashplayerplugin"), 9)==0)return true;
 		}
 		return false;
 	}
