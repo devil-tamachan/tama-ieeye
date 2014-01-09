@@ -12,13 +12,15 @@
 #define ID_EXIT                         32775
 #define ID_EXIT_TEST1                   32776
 #define ID_MENU1_EXIT                   32777
+#define ID_Menu                         32778
+#define IDM_CHECKENABLE                 32779
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        203
-#define _APS_NEXT_COMMAND_VALUE         32778
+#define _APS_NEXT_COMMAND_VALUE         32780
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
