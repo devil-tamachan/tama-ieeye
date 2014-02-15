@@ -1,13 +1,20 @@
 // メルセンヌ・ツイスター ActionScript3移植版
+// 0.2 (2014/02/15)
 /*
 使い方:
 
 import MT;
-var rnd:MT = new MT();
+
 for(var j:uint = 0;j<50;j++)
-  trace(rnd.randomMax(5).toString());//randomMax(5)で、0～5の数値が返ってくる
+  trace(MT.randomMax(5).toString());//randomMax(5)で、0～5の数値が返ってくる
 for(var i:uint = 0;i<50;i++)
-  trace(rnd.random().toString()); //random()はAS3のMath.random()と同等。[0.0-1.0) <--1.0は含まれません。0.9999....までです。1.0まで含みたい場合、random()をgenrand_real1()に書き換えましょう
+  trace(MT.random().toString()); //random()はAS3のMath.random()と同等。[0.0-1.0) <--1.0は含まれません。0.9999....までです。1.0まで含みたい場合、random()をgenrand_real1()に書き換えましょう
+
+*/
+/*
+変更履歴:
+0.2(2014/02/15) - 関数のstatic化。変数宣言が不要に。
+0.1(2014/02/15) - 最初のリリース
 
 */
 
@@ -57,13 +64,13 @@ package
 {
   public class MT
   {
-    const N:int = 624;
-    const M:int = 397;
+    static const N:int = 624;
+    static const M:int = 397;
     static var mt:Vector.<uint> = new Vector.<uint>(624, true);
     static var mti:uint = 625;
-    const mag01:Vector.<uint> = new <uint>[0, 0x9908b0df];
-    const UPPER_MASK:uint = 0x80000000;
-    const LOWER_MASK:uint = 0x7fffffff;
+    static const mag01:Vector.<uint> = new <uint>[0, 0x9908b0df];
+    static const UPPER_MASK:uint = 0x80000000;
+    static const LOWER_MASK:uint = 0x7fffffff;
     public function MT(seed:uint = 0):void
     {
       if(seed == 0)
@@ -74,22 +81,22 @@ package
       }
     }
     /* generates a random number on [0,1)-real-interval */
-    public function random():Number
+    public static function random():Number
     {
       return genrand_uint32()*(1.0/4294967296.0);
     }
     /* [0-max] */
-    public function randomMax(max:uint):uint
+    public static function randomMax(max:uint):uint
     {
       return uint(Math.floor(random()*(Number(max)+1)));
     }
     
-    public function initByDate():void
+    public static function initByDate():void
     {
       var now:Date = new Date();
       init(uint(now.getTime()));
     }
-    public function init(seed:uint):void
+    public static function init(seed:uint):void
     {
       mt[0]= seed & uint.MAX_VALUE;
       for (mti=1; mti<N; mti++) {
@@ -103,7 +110,7 @@ package
       }
     }
     /* generates a random number on [0,0xffffffff]-interval */
-    public function genrand_uint32():uint
+    public static function genrand_uint32():uint
     {
       var y:uint;
       //static uint mag01[2]={0x0UL, MATRIX_A};
@@ -113,7 +120,7 @@ package
         var kk:int;
         
         if (mti == N+1)   /* if init_genrand() has not been called, */
-          init(5489); /* a default initial seed is used */
+          initByDate();
         
         for (kk=0;kk<N-M;kk++) {
           y = (mt[kk]&UPPER_MASK)|(mt[kk+1]&LOWER_MASK);
@@ -139,7 +146,7 @@ package
       return y;
     }
     /* generates a random number on [0,1]-real-interval */
-    public function genrand_real1():Number
+    public static function genrand_real1():Number
     {
       return genrand_uint32()*(1.0/4294967295.0);
     }
