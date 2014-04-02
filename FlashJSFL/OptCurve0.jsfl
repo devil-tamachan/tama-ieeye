@@ -1,0 +1,1 @@
+﻿document.optimizeCurves(0, true);
