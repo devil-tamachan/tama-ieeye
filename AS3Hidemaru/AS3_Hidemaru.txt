@@ -1,0 +1,89 @@
+true
+false
+:Graphics = x.graphics;
+Graphics
+:Sprite = new Sprite();
+Sprite
+:Shape = new Shape();
+Shape
+:MovieClip = new MovieClip();
+MovieClip
+lineStyle(0, 0xFF0000, 1.0);
+moveTo(0, 0);
+lineTo(0, 0);
+drawCircle(0, 0, 100);
+drawEllipse(0, 0, 100, 80);
+drawRect(0, 0, 100, 100);
+drawRoundRect(0, 0, 100, 100, 10, 10);
+lineGradientStyle(GradientType.LINEAR, [0xFF0000, 0x00FF00], [1.0, 1.0], [0, 255]);
+GradientType.LINEAR
+GradientType.RADIAL
+beginFill(0xFF0000, 1.0);
+beginGradientFill(GradientType.LINEAR, [0xFF0000, 0x00FF00], [1.0, 1.0], [0, 255]);
+beginBitmapFill(bitmap);
+endFill();
+drawRect();
+addEventListener(Event, on);
+addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+addEventListener(MouseEvent.CLICK, onClick);
+addEventListener(MouseEvent.DOUBLE_CLICK, onDoubleClick);
+addEventListener(Event.ENTER_FRAME, onEnterFrame);
+function f():void{}
+addChild();
+MouseEvent.MOUSE_DOWN
+MouseEvent.MOUSE_MOVE
+MouseEvent.MOUSE_WHEEL
+MouseEvent.MOUSE_UP
+MouseEvent.CLICK
+MouseEvent.DOUBLE_CLICK
+MouseEvent.RIGHT_MOUSE_DOWN
+MouseEvent.RIGHT_MOUSE_UP
+MouseEvent.RIGHT_CLICK
+MouseEvent.MIDDLE_MOUSE_DOWN
+MouseEvent.MIDDLE_MOUSE_UP
+MouseEvent.MIDDLE_CLICK
+onMouseDown(e:MouseEvent):void {}
+onMouseUp(e:MouseEvent):void {}
+onMouseMove(e:MouseEvent):void {}
+onEnterFrame(e:Event):void {}
+stage.mouseX
+stage.mouseY
+e:Event
+e.target /* Žq‚ÌŽž‚à‚ ‚é(addEventListener‚µ‚½‚à‚Ì‚Æ‚ÍŒÀ‚ç‚È‚¢) */
+e.currentTarget /* ==addEventListener */
+e:MouseEvent
+import flash.display.Sprite;
+import flash.display.Graphics;
+import flash.events.MouseEvent;
+import flash.display.MovieClip;
+import flash.ui.Mouse;
+Number
+.text = "";
+:String = "";
+:Array = [];
+:Array = new Array();
+import flash.utils.Timer;
+import flash.events.TimerEvent;
+var timer:Timer = new Timer(1000);
+var timer:Timer = new Timer(1000, 1);
+:Timer = new Timer(1000);
+:Timer = new Timer(1000, 1);
+trace();
+TimerEvent.TIMER
+TimerEvent.TIMER_COMPLETE
+timer.start();
+timer.stop();
+timer.reset();
+timer.addEventListener(TimerEvent, onTimer);
+timer.addEventListener(TimerEvent, function (e:TimerEvent): void { });
+timer.currentCount
+timer.delay
+timer.repeatCount
+timer.running
+setTimeout(onTimerOut, 1000);//var timerid:uint = 
+setTimeout(function ():void {  }, 1000);//var timerid:uint = 
+clearTimeout(timerid);
+setInterval(onTimert, 1000);//var timerid:uint = 
+setInterval(function ():void {  }, 1000);//var timerid:uint = 
