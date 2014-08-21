@@ -1,5 +1,7 @@
 true
 false
+MovieClip(root).
+MovieClip(parent).
 :Graphics = x.graphics;
 Graphics
 :Sprite = new Sprite();
@@ -24,12 +26,13 @@ beginBitmapFill(bitmap);
 endFill();
 drawRect();
 addEventListener(Event, on);
+addEventListener(Event.ENTER_FRAME, onEnterFrame);
+addEventListener(MouseEvent.CLICK, onClick);
 addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
 addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
-addEventListener(MouseEvent.CLICK, onClick);
 addEventListener(MouseEvent.DOUBLE_CLICK, onDoubleClick);
-addEventListener(Event.ENTER_FRAME, onEnterFrame);
+removeEventListener
 function f():void{}
 addChild();
 MouseEvent.MOUSE_DOWN
@@ -61,7 +64,12 @@ import flash.display.MovieClip;
 import flash.ui.Mouse;
 Number
 .text = "";
+:String
+String
 :String = "";
+:Number
+:Array
+Array
 :Array = [];
 :Array = new Array();
 import flash.utils.Timer;
@@ -70,6 +78,7 @@ var timer:Timer = new Timer(1000);
 var timer:Timer = new Timer(1000, 1);
 :Timer = new Timer(1000);
 :Timer = new Timer(1000, 1);
+trace("");
 trace();
 TimerEvent.TIMER
 TimerEvent.TIMER_COMPLETE
@@ -87,3 +96,25 @@ setTimeout(function ():void {  }, 1000);//var timerid:uint =
 clearTimeout(timerid);
 setInterval(onTimert, 1000);//var timerid:uint = 
 setInterval(function ():void {  }, 1000);//var timerid:uint = 
+gotoAndPlay(1);
+gotoAndStop(1);
+play();
+stop();
+this.
+extends 
+public 
+private 
+class a {}
+class a extends p {}
+function ():void{}
+:int
+int
+:uint
+uint
+Number
+Boolean
+for(var i:int=0;i<arr.length;i++)
+:SharedObject = SharedObject.getLocal("data1");
+return;
++""
++", : "
