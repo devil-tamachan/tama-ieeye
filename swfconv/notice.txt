@@ -1,0 +1,9 @@
+as3corelib:
+
+Copyright (c) 2008, Adobe Systems Incorporated
+All rights reserved.
+
+asSWFbit:
+
+ Copyright (c) 2007, Markus Bordihn (http://markusbordihn.de)
+ All rights reserved.
