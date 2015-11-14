@@ -5,7 +5,7 @@
 //          の直前に<br />
 //					OpOff(ptr, 0, 0);<br />
 //          をいれてください<br />
-// 3. お好みによってWinUser.hにWinUser_h2mfc_message_map.mac (秀丸マクロ)を実行することによってmessageName()を強化できます。<br />
+// 3. お好みによってWinUser.h、afxpriv.hにWinUser_h2mfc_message_map.mac (秀丸マクロ)を実行することによってmessageName()を強化できます。<br />
 //</p>
 <p>
 // 使用方法<br />

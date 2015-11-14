@@ -470,3 +470,71 @@
                 MakeComm(ptr, "WM_APP");
         else if(message == 0x0400) // WM_USER
                 MakeComm(ptr, "WM_USER");
+
+//afxpriv.h
+        else if(message == 0x0360) // WM_QUERYAFXWNDPROC
+                MakeComm(ptr, "WM_QUERYAFXWNDPROC");
+        else if(message == 0x0361) // WM_SIZEPARENT
+                MakeComm(ptr, "WM_SIZEPARENT");
+        else if(message == 0x0362) // WM_SETMESSAGESTRING
+                MakeComm(ptr, "WM_SETMESSAGESTRING");
+        else if(message == 0x0363) // WM_IDLEUPDATECMDUI
+                MakeComm(ptr, "WM_IDLEUPDATECMDUI");
+        else if(message == 0x0364) // WM_INITIALUPDATE
+                MakeComm(ptr, "WM_INITIALUPDATE");
+        else if(message == 0x0365) // WM_COMMANDHELP
+                MakeComm(ptr, "WM_COMMANDHELP");
+        else if(message == 0x0366) // WM_HELPHITTEST
+                MakeComm(ptr, "WM_HELPHITTEST");
+        else if(message == 0x0367) // WM_EXITHELPMODE
+                MakeComm(ptr, "WM_EXITHELPMODE");
+        else if(message == 0x0368) // WM_RECALCPARENT
+                MakeComm(ptr, "WM_RECALCPARENT");
+        else if(message == 0x0369) // WM_SIZECHILD
+                MakeComm(ptr, "WM_SIZECHILD");
+        else if(message == 0x036A) // WM_KICKIDLE
+                MakeComm(ptr, "WM_KICKIDLE");
+        else if(message == 0x036B) // WM_QUERYCENTERWND
+                MakeComm(ptr, "WM_QUERYCENTERWND");
+        else if(message == 0x036C) // WM_DISABLEMODAL
+                MakeComm(ptr, "WM_DISABLEMODAL");
+        else if(message == 0x036D) // WM_FLOATSTATUS
+                MakeComm(ptr, "WM_FLOATSTATUS");
+        else if(message == 0x036E) // WM_ACTIVATETOPLEVEL
+                MakeComm(ptr, "WM_ACTIVATETOPLEVEL");
+        else if(message == 0x036F) // WM_RESERVED_036F
+                MakeComm(ptr, "WM_RESERVED_036F");
+        else if(message == 0x0370) // WM_RESERVED_0370
+                MakeComm(ptr, "WM_RESERVED_0370");
+        else if(message == 0x0371) // WM_RESERVED_0371
+                MakeComm(ptr, "WM_RESERVED_0371");
+        else if(message == 0x0372) // WM_RESERVED_0372
+                MakeComm(ptr, "WM_RESERVED_0372");
+        else if(message == 0x0373) // WM_SOCKET_NOTIFY
+                MakeComm(ptr, "WM_SOCKET_NOTIFY");
+        else if(message == 0x0374) // WM_SOCKET_DEAD
+                MakeComm(ptr, "WM_SOCKET_DEAD");
+        else if(message == 0x0375) // WM_POPMESSAGESTRING
+                MakeComm(ptr, "WM_POPMESSAGESTRING");
+        else if(message == 0x0376) // WM_HELPPROMPTADDR
+                MakeComm(ptr, "WM_HELPPROMPTADDR");
+        else if(message == 0x0376) // WM_OCC_LOADFROMSTREAM
+                MakeComm(ptr, "WM_OCC_LOADFROMSTREAM");
+        else if(message == 0x0377) // WM_OCC_LOADFROMSTORAGE
+                MakeComm(ptr, "WM_OCC_LOADFROMSTORAGE");
+        else if(message == 0x0378) // WM_OCC_INITNEW
+                MakeComm(ptr, "WM_OCC_INITNEW");
+        else if(message == 0x037A) // WM_OCC_LOADFROMSTREAM_EX
+                MakeComm(ptr, "WM_OCC_LOADFROMSTREAM_EX");
+        else if(message == 0x037B) // WM_OCC_LOADFROMSTORAGE_EX
+                MakeComm(ptr, "WM_OCC_LOADFROMSTORAGE_EX");
+        else if(message == 0x037C) // WM_MFC_INITCTRL
+                MakeComm(ptr, "WM_MFC_INITCTRL");
+        else if(message == 0x0379) // WM_QUEUE_SENTINEL
+                MakeComm(ptr, "WM_QUEUE_SENTINEL");
+        else if(message == 0x037D) // WM_RESERVED_037D
+                MakeComm(ptr, "WM_RESERVED_037D");
+        else if(message == 0x037E) // WM_RESERVED_037E
+                MakeComm(ptr, "WM_RESERVED_037E");
+        else if(message == 0x037F) // WM_FORWARDMSG
+                MakeComm(ptr, "WM_FORWARDMSG");
