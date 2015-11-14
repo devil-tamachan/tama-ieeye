@@ -470,8 +470,6 @@
                 MakeComm(ptr, "WM_APP");
         else if(message == 0x0400) // WM_USER
                 MakeComm(ptr, "WM_USER");
-
-//afxpriv.h
         else if(message == 0x0360) // WM_QUERYAFXWNDPROC
                 MakeComm(ptr, "WM_QUERYAFXWNDPROC");
         else if(message == 0x0361) // WM_SIZEPARENT
