@@ -1,0 +1,10 @@
+	setcompatiblemode 0x0F;
+	begingroupundo;
+	replaceallfast "^(?!#define\\s+wm_\\c+\\s+0x[\\dA-Fa-f]+).+\\n" , "" , regular, nocasesense, nohilight;
+	endgroupundo 1;
+	begingroupundo;
+	replaceallfast "^\\n" , "" , regular, nocasesense, nohilight;
+	endgroupundo 1;
+	begingroupundo;
+	replaceallfast "^#define\\s+wm_(\\c+)\\s+0x([\\dA-Fa-f]+).+\\n" , "        else if(message == 0x\\2) // WM_\\1\\n                MakeComm(ptr, \"WM_\\1\");\\n" , regular, nocasesense, nohilight;
+	endgroupundo 1;
