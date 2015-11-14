@@ -182,8 +182,6 @@
                 MakeComm(ptr, "WM_INPUT_DEVICE_CHANGE");
         else if(message == 0x00FF) // WM_INPUT
                 MakeComm(ptr, "WM_INPUT");
-        else if(message == 0x0100) // WM_KEYFIRST
-                MakeComm(ptr, "WM_KEYFIRST");
         else if(message == 0x0100) // WM_KEYDOWN
                 MakeComm(ptr, "WM_KEYDOWN");
         else if(message == 0x0101) // WM_KEYUP
@@ -202,18 +200,12 @@
                 MakeComm(ptr, "WM_SYSDEADCHAR");
         else if(message == 0x0109) // WM_UNICHAR
                 MakeComm(ptr, "WM_UNICHAR");
-        else if(message == 0x0109) // WM_KEYLAST
-                MakeComm(ptr, "WM_KEYLAST");
-        else if(message == 0x0108) // WM_KEYLAST
-                MakeComm(ptr, "WM_KEYLAST");
         else if(message == 0x010D) // WM_IME_STARTCOMPOSITION
                 MakeComm(ptr, "WM_IME_STARTCOMPOSITION");
         else if(message == 0x010E) // WM_IME_ENDCOMPOSITION
                 MakeComm(ptr, "WM_IME_ENDCOMPOSITION");
         else if(message == 0x010F) // WM_IME_COMPOSITION
                 MakeComm(ptr, "WM_IME_COMPOSITION");
-        else if(message == 0x010F) // WM_IME_KEYLAST
-                MakeComm(ptr, "WM_IME_KEYLAST");
         else if(message == 0x0110) // WM_INITDIALOG
                 MakeComm(ptr, "WM_INITDIALOG");
         else if(message == 0x0111) // WM_COMMAND
@@ -270,8 +262,6 @@
                 MakeComm(ptr, "WM_CTLCOLORSCROLLBAR");
         else if(message == 0x0138) // WM_CTLCOLORSTATIC
                 MakeComm(ptr, "WM_CTLCOLORSTATIC");
-        else if(message == 0x0200) // WM_MOUSEFIRST
-                MakeComm(ptr, "WM_MOUSEFIRST");
         else if(message == 0x0200) // WM_MOUSEMOVE
                 MakeComm(ptr, "WM_MOUSEMOVE");
         else if(message == 0x0201) // WM_LBUTTONDOWN
@@ -302,14 +292,6 @@
                 MakeComm(ptr, "WM_XBUTTONDBLCLK");
         else if(message == 0x020E) // WM_MOUSEHWHEEL
                 MakeComm(ptr, "WM_MOUSEHWHEEL");
-        else if(message == 0x020E) // WM_MOUSELAST
-                MakeComm(ptr, "WM_MOUSELAST");
-        else if(message == 0x020D) // WM_MOUSELAST
-                MakeComm(ptr, "WM_MOUSELAST");
-        else if(message == 0x020A) // WM_MOUSELAST
-                MakeComm(ptr, "WM_MOUSELAST");
-        else if(message == 0x0209) // WM_MOUSELAST
-                MakeComm(ptr, "WM_MOUSELAST");
         else if(message == 0x0210) // WM_PARENTNOTIFY
                 MakeComm(ptr, "WM_PARENTNOTIFY");
         else if(message == 0x0211) // WM_ENTERMENULOOP
@@ -388,10 +370,6 @@
                 MakeComm(ptr, "WM_NCMOUSELEAVE");
         else if(message == 0x02B1) // WM_WTSSESSION_CHANGE
                 MakeComm(ptr, "WM_WTSSESSION_CHANGE");
-        else if(message == 0x02c0) // WM_TABLET_FIRST
-                MakeComm(ptr, "WM_TABLET_FIRST");
-        else if(message == 0x02df) // WM_TABLET_LAST
-                MakeComm(ptr, "WM_TABLET_LAST");
         else if(message == 0x0300) // WM_CUT
                 MakeComm(ptr, "WM_CUT");
         else if(message == 0x0301) // WM_COPY
@@ -454,18 +432,6 @@
                 MakeComm(ptr, "WM_DWMSENDICONICLIVEPREVIEWBITMAP");
         else if(message == 0x033F) // WM_GETTITLEBARINFOEX
                 MakeComm(ptr, "WM_GETTITLEBARINFOEX");
-        else if(message == 0x0358) // WM_HANDHELDFIRST
-                MakeComm(ptr, "WM_HANDHELDFIRST");
-        else if(message == 0x035F) // WM_HANDHELDLAST
-                MakeComm(ptr, "WM_HANDHELDLAST");
-        else if(message == 0x0360) // WM_AFXFIRST
-                MakeComm(ptr, "WM_AFXFIRST");
-        else if(message == 0x037F) // WM_AFXLAST
-                MakeComm(ptr, "WM_AFXLAST");
-        else if(message == 0x0380) // WM_PENWINFIRST
-                MakeComm(ptr, "WM_PENWINFIRST");
-        else if(message == 0x038F) // WM_PENWINLAST
-                MakeComm(ptr, "WM_PENWINLAST");
         else if(message == 0x8000) // WM_APP
                 MakeComm(ptr, "WM_APP");
         else if(message == 0x0400) // WM_USER

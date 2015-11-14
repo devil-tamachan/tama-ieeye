@@ -6,5 +6,8 @@
 	replaceallfast "^\\n" , "" , regular, nocasesense, nohilight;
 	endgroupundo 1;
 	begingroupundo;
+	replaceallfast "^#define\\s+wm_(\\c+)(FIRST|LAST)\\s+0x([\\dA-Fa-f]+)[^\\dA-Fa-f\r\n]??.*?\\n" , "" , regular, nocasesense, nohilight;
+	endgroupundo 1;
+	begingroupundo;
 	replaceallfast "^#define\\s+wm_(\\c+)\\s+0x([\\dA-Fa-f]+)[^\\dA-Fa-f\r\n]??.*?\\n" , "        else if(message == 0x\\2) // WM_\\1\\n                MakeComm(ptr, \"WM_\\1\");\\n" , regular, nocasesense, nohilight;
 	endgroupundo 1;
