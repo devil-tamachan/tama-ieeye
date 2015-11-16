@@ -12,5 +12,5 @@
 <p><img src="https://tama-ieeye.googlecode.com/git/AS3Hidemaru/as3hidemaru.png"></img> </p>
 <p>9. <a href="https://github.com/devil-tamachan/tama-ieeye/tree/master/swfconv" rel="nofollow"><tt>swfconv 1.2</tt></a> - swfをキャプチャして画像化。アニメGIF出力、PNGシーケンス画像出力。スプライトシート、動画出力は未実装。要<a href="http://www.imagemagick.org/script/binary-releases.php" rel="nofollow">ImageMagick</a>。Win/Mac対応 </p>
 <p>10. <a href="https://github.com/devil-tamachan/tama-ieeye/blob/master/alphanumSort/alphanum.js" rel="nofollow">Alphanumソート Javascript版</a> </p>
-<p>11. <a href="https://github.com/devil-tamachan/tama-ieeye/blob/master/afx_msgmap/" rel="nofollow">afx_msgmap.idc</a>: IDA Pro Free(5.0以上)でAFX_MSGMAP_ENTRY解読用スクリプト。<a href="https://quequero.org/2008/08/guidelines-to-mfc-reversing/">要mfc_message_map.idc</a> </p>
+<p>11. <a href="https://github.com/devil-tamachan/tama-ieeye/tree/master/IDAScripts" rel="nofollow">afx_msgmap.idc</a>: IDA Pro Free(5.0以上)でAFX_MSGMAP_ENTRY解読用スクリプト。<a href="https://quequero.org/2008/08/guidelines-to-mfc-reversing/">要mfc_message_map.idc</a> </p>
 
