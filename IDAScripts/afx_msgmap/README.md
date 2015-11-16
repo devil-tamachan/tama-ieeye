@@ -14,7 +14,7 @@
 // 3. mov元からMSGMAPの場所を突き止め、カーソルを先頭アドレスにあわせます。3.pngの場合は0x00519158<br />
 // 4. Alt-F6で実行します。失敗した場合はそれっぽいところを範囲選択して右クリック→Undefine。またはAFX_MSGMAP_ENTRY構造体に手動で変換してください。ddなどに手動で変換してると失敗します(IDA ProのMakeStructのバグ？)</p>
 <p>
-<img src="https://raw.githubusercontent.com/devil-tamachan/tama-ieeye/master/afx_msgmap/1.png">
-<img src="https://raw.githubusercontent.com/devil-tamachan/tama-ieeye/master/afx_msgmap/2.png">
-<img src="https://raw.githubusercontent.com/devil-tamachan/tama-ieeye/master/afx_msgmap/3.png">
+<img src="https://raw.githubusercontent.com/devil-tamachan/tama-ieeye/master/IDAScripts/afx_msgmap/1.png">
+<img src="https://raw.githubusercontent.com/devil-tamachan/tama-ieeye/master/IDAScripts/afx_msgmap/2.png">
+<img src="https://raw.githubusercontent.com/devil-tamachan/tama-ieeye/master/IDAScripts/afx_msgmap/3.png">
 </p>
