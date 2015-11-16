@@ -1,3 +1,7 @@
+
+
+static mes1(ptr, message)
+{
         if(message == 0x0000) // WM_NULL
                 MakeComm(ptr, "WM_NULL");
         else if(message == 0x0001) // WM_CREATE
@@ -30,18 +34,20 @@
                 MakeComm(ptr, "WM_CLOSE");
         else if(message == 0x0011) // WM_QUERYENDSESSION
                 MakeComm(ptr, "WM_QUERYENDSESSION");
-        else if(message == 0x0013) // WM_QUERYOPEN
-                MakeComm(ptr, "WM_QUERYOPEN");
-        else if(message == 0x0016) // WM_ENDSESSION
-                MakeComm(ptr, "WM_ENDSESSION");
         else if(message == 0x0012) // WM_QUIT
                 MakeComm(ptr, "WM_QUIT");
+        else if(message == 0x0013) // WM_QUERYOPEN
+                MakeComm(ptr, "WM_QUERYOPEN");
         else if(message == 0x0014) // WM_ERASEBKGND
                 MakeComm(ptr, "WM_ERASEBKGND");
         else if(message == 0x0015) // WM_SYSCOLORCHANGE
                 MakeComm(ptr, "WM_SYSCOLORCHANGE");
+        else if(message == 0x0016) // WM_ENDSESSION
+                MakeComm(ptr, "WM_ENDSESSION");
         else if(message == 0x0018) // WM_SHOWWINDOW
                 MakeComm(ptr, "WM_SHOWWINDOW");
+        else if(message == 0x0019) // WM_CTLCOLOR
+                MakeComm(ptr, "WM_CTLCOLOR");
         else if(message == 0x001A) // WM_WININICHANGE
                 MakeComm(ptr, "WM_WININICHANGE");
         else if(message == 0x001B) // WM_DEVMODECHANGE
@@ -182,7 +188,11 @@
                 MakeComm(ptr, "WM_INPUT_DEVICE_CHANGE");
         else if(message == 0x00FF) // WM_INPUT
                 MakeComm(ptr, "WM_INPUT");
-        else if(message == 0x0100) // WM_KEYDOWN
+}
+
+static mes2(ptr, message)
+{
+        if(message == 0x0100) // WM_KEYDOWN
                 MakeComm(ptr, "WM_KEYDOWN");
         else if(message == 0x0101) // WM_KEYUP
                 MakeComm(ptr, "WM_KEYUP");
@@ -360,14 +370,14 @@
                 MakeComm(ptr, "WM_IME_KEYDOWN");
         else if(message == 0x0291) // WM_IME_KEYUP
                 MakeComm(ptr, "WM_IME_KEYUP");
-        else if(message == 0x02A1) // WM_MOUSEHOVER
-                MakeComm(ptr, "WM_MOUSEHOVER");
-        else if(message == 0x02A3) // WM_MOUSELEAVE
-                MakeComm(ptr, "WM_MOUSELEAVE");
         else if(message == 0x02A0) // WM_NCMOUSEHOVER
                 MakeComm(ptr, "WM_NCMOUSEHOVER");
+        else if(message == 0x02A1) // WM_MOUSEHOVER
+                MakeComm(ptr, "WM_MOUSEHOVER");
         else if(message == 0x02A2) // WM_NCMOUSELEAVE
                 MakeComm(ptr, "WM_NCMOUSELEAVE");
+        else if(message == 0x02A3) // WM_MOUSELEAVE
+                MakeComm(ptr, "WM_MOUSELEAVE");
         else if(message == 0x02B1) // WM_WTSSESSION_CHANGE
                 MakeComm(ptr, "WM_WTSSESSION_CHANGE");
         else if(message == 0x0300) // WM_CUT
@@ -432,10 +442,6 @@
                 MakeComm(ptr, "WM_DWMSENDICONICLIVEPREVIEWBITMAP");
         else if(message == 0x033F) // WM_GETTITLEBARINFOEX
                 MakeComm(ptr, "WM_GETTITLEBARINFOEX");
-        else if(message == 0x8000) // WM_APP
-                MakeComm(ptr, "WM_APP");
-        else if(message == 0x0400) // WM_USER
-                MakeComm(ptr, "WM_USER");
         else if(message == 0x0360) // WM_QUERYAFXWNDPROC
                 MakeComm(ptr, "WM_QUERYAFXWNDPROC");
         else if(message == 0x0361) // WM_SIZEPARENT
@@ -488,17 +494,31 @@
                 MakeComm(ptr, "WM_OCC_LOADFROMSTORAGE");
         else if(message == 0x0378) // WM_OCC_INITNEW
                 MakeComm(ptr, "WM_OCC_INITNEW");
+        else if(message == 0x0379) // WM_QUEUE_SENTINEL
+                MakeComm(ptr, "WM_QUEUE_SENTINEL");
         else if(message == 0x037A) // WM_OCC_LOADFROMSTREAM_EX
                 MakeComm(ptr, "WM_OCC_LOADFROMSTREAM_EX");
         else if(message == 0x037B) // WM_OCC_LOADFROMSTORAGE_EX
                 MakeComm(ptr, "WM_OCC_LOADFROMSTORAGE_EX");
         else if(message == 0x037C) // WM_MFC_INITCTRL
                 MakeComm(ptr, "WM_MFC_INITCTRL");
-        else if(message == 0x0379) // WM_QUEUE_SENTINEL
-                MakeComm(ptr, "WM_QUEUE_SENTINEL");
         else if(message == 0x037D) // WM_RESERVED_037D
                 MakeComm(ptr, "WM_RESERVED_037D");
         else if(message == 0x037E) // WM_RESERVED_037E
                 MakeComm(ptr, "WM_RESERVED_037E");
         else if(message == 0x037F) // WM_FORWARDMSG
                 MakeComm(ptr, "WM_FORWARDMSG");
+        else if(message == 0x0400) // WM_USER
+                MakeComm(ptr, "WM_USER");
+        else if(message == 0x8000) // WM_APP
+                MakeComm(ptr, "WM_APP");
+}
+
+static messageName(ptr, message) {
+	if(message < 0x0100)
+	{
+		mes1(ptr, message);
+  } else {
+		mes2(ptr, message);
+  }
+}
