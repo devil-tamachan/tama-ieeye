@@ -96,7 +96,7 @@ static AddAddr(a)
 static regPushOffset(pushaddr)
 {
 	auto rc1;
-	Message("0x%08X: %s, %d Flag%08X %d\n", pushaddr, GetMnem(pushaddr), GetOpType(pushaddr, 0), GetFlags(pushaddr), isStkvar0(GetFlags(pushaddr)));
+	//Message("0x%08X: %s, %d Flag%08X %d\n", pushaddr, GetMnem(pushaddr), GetOpType(pushaddr, 0), GetFlags(pushaddr), isStkvar0(GetFlags(pushaddr)));
 	if(GetOpType(pushaddr, 0)!=1 && GetOpType(pushaddr, 0)!=5)
 	{
 		//Jump(pushaddr);
@@ -106,7 +106,7 @@ static regPushOffset(pushaddr)
 	if(rc1!=BADADDR)
 	{
     AddAddr(rc1);
-		Message("Offset -> 0x%08X-0x%08X %s\n", rc1, GetNextLabelAddr(rc1), Name(rc1));
+		//Message("Offset -> 0x%08X-0x%08X %s\n", rc1, GetNextLabelAddr(rc1), Name(rc1));
 	//	rc1 = Dnext(pushaddr, rc1);
 	} else {
     //Message("Op == %s\n", GetOpnd(pushaddr, 0));
@@ -163,7 +163,7 @@ static scanCallArg(calladdr)
 		{
 			findPush(a1, 0);
 		}
-		Message("xref: %08X %d\n", a1, XrefType());
+		//Message("xref: %08X %d\n", a1, XrefType());
 		a1 = RnextB(calladdr, a1);
 	}
 }
@@ -192,7 +192,7 @@ static dumpCRuntimeClass(fp, a)
   s = GetString(stra, -1, GetStringType(stra));
   if(s!="")fprintf(fp, "%s, ", s);
   else fprintf(fp, "0x%08X, ", stra);
-  while(a+4 <= b && limit > 0)
+  while(a+8 <= b && limit > 0)
   {
     a = a+4;
     fprintf(fp, "0x%08X,  ", Dword(a));
