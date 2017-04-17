@@ -6,7 +6,7 @@ for o in doc.object:
   for f in o.face:
     idxFace = o.getFaceIndexFromUniqueID(f.id)
     if f.numVertex<2:
-      break
+      continue
     
     for vii in range(f.numVertex):
       if doc.isSelectLine(idxObj, idxFace, vii)==1:

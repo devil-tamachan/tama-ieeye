@@ -12,7 +12,7 @@ for o in doc.object:
   for f in o.face:
     idxFace = o.getFaceIndexFromUniqueID(f.id)
     if f.numVertex<2:
-      break
+      continue
     
     for li in range(f.numVertex):
       vi = f.index[li]
